@@ -1311,7 +1311,8 @@ func yaml_emitter_write_tag_content(emitter *yaml_emitter_t, value []byte, need_
 }
 
 func yaml_emitter_write_plain_scalar(emitter *yaml_emitter_t, value []byte, allow_breaks bool) bool {
-	if !emitter.whitespace {
+        allow_breaks = false
+        if !emitter.whitespace {
 		if !put(emitter, ' ') {
 			return false
 		}
